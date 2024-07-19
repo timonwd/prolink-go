@@ -105,7 +105,7 @@ type field interface {
 }
 
 // fieldNumber01 represents a unit8 number field
-type fieldNumber01 uint8
+type fieldNumber01 uint32
 
 func (v fieldNumber01) bytes() []byte {
 	return []byte{fieldTypeNumber01, byte(v)}
@@ -215,7 +215,7 @@ type genericPacket struct {
 }
 
 func (p *genericPacket) bytes() []byte {
-	argCount := uint8(len(p.arguments))
+	argCount := uint32(len(p.arguments))
 
 	// Construct the arg type list field (sometimes known as a tags field).
 	// Argument lists are always 12 bytes long with trailing 0x00 padding. At

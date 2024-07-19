@@ -133,7 +133,7 @@ type CDJStatus struct {
 	TrackBPM       float32
 	EffectivePitch float32
 	SliderPitch    float32
-	BeatInMeasure  uint8
+	BeatInMeasure  uint32
 	BeatsUntilCue  uint16
 	Beat           uint32
 	PacketNum      uint32
@@ -203,7 +203,7 @@ func packetToStatus(p []byte) (*CDJStatus, error) {
 		TrackBPM:       calcBPM(p[0x92 : 0x92+2]),
 		SliderPitch:    calcPitch(p[0x8D : 0x8D+3]),
 		EffectivePitch: calcPitch(p[0x99 : 0x99+3]),
-		BeatInMeasure:  uint8(p[0xA6]),
+		BeatInMeasure:  uint32(p[0xA6]),
 		BeatsUntilCue:  be.Uint16(p[0xA4 : 0xA4+2]),
 		Beat:           be.Uint32(p[0xA0 : 0xA0+4]),
 		PacketNum:      be.Uint32(p[0xC8 : 0xC8+4]),
