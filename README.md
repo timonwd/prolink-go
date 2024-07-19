@@ -75,3 +75,19 @@ st.AddStatusHandler(prolink.StatusHandlerFunc(statusChange));
   metadata from the CDJs USB drives you may have no more than 3 CDJs. Having 4
   CDJs on the network will only allow you to read track metadata through
   linked Rekordbox.
+
+### Build XCFramework
+
+### Preparation
+
+```
+go install golang.org/x/mobile/cmd/gomobile@latest
+export PATH=$PATH:~/go/bin
+go get golang.org/x/mobile/cmd/gomobile
+```
+
+### Build
+
+```
+gomobile bind -target=macos
+```
