@@ -89,5 +89,5 @@ go get golang.org/x/mobile/cmd/gomobile
 ### Build
 
 ```
-gomobile bind -target=macos
+gomobile bind -target=macos,ios,iossimulator
 ```
